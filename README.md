@@ -36,7 +36,7 @@ Options for `scripts/render.mjs`: `--date` (the moon's moment, default `2026-10-
 Output in `out/`:
 
 - `engravings-drawn-live-1920x1080.mp4`, `.webm`, and `engravings-drawn-live-1080x1920.mp4`
-- `*-poster.png`, the frame at 32 s
+- `*-poster.png` and `*-poster.webp` (lossless, same pixels), the frame at 32 s
 - `engravings-drawn-live.en.vtt`, the captions
 - `*.frames.sha256`, a SHA-256 for every frame, so a re-render can be compared frame by frame
 

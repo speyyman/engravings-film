@@ -167,6 +167,33 @@ for (const orientation of cuts) {
   ff.stdin.end()
   await done
   await writeFile(join(outDir, `${name}.frames.sha256`), `${hashes.join('\n')}\n`)
+  // The poster again as lossless WebP: the same pixels at about a seventh of the size, for the web page.
+  const poster = join(outDir, `${name}-poster.png`)
+  if (from <= 32 * fps && to > 32 * fps) {
+    await new Promise((resolve, reject) =>
+      spawn(
+        args.ffmpeg,
+        [
+          '-hide_banner',
+          '-loglevel',
+          'error',
+          '-y',
+          '-i',
+          poster,
+          '-c:v',
+          'libwebp',
+          '-lossless',
+          '1',
+          '-compression_level',
+          '6',
+          poster.replace(/\.png$/, '.webp'),
+        ],
+        {
+          stdio: 'inherit',
+        },
+      ).on('close', (code) => (code === 0 ? resolve() : reject(new Error(`ffmpeg (poster) exited with ${code}`)))),
+    )
+  }
   summary.push(`${name}: frames ${from}..${to - 1} in ${((Date.now() - started) / 1000).toFixed(0)} s`)
   await page.close()
 }
