@@ -4,7 +4,18 @@
  * readout of the rule, and the caption. Fonts must already be loaded.
  */
 import { GOLDEN_ANGLE_DEG, ditherPlate, palettes } from 'plate-engine'
-import { CELLS, FERN_MAPS, Fern, moon, moonEngraved, seedPosition, sunflower, sunflowerSeeds, sunflowerWithPetals } from './scenes.js'
+import {
+  CELLS,
+  DRAWN_SEEDS,
+  FERN_MAPS,
+  Fern,
+  moon,
+  moonEngraved,
+  seedPosition,
+  sunflower,
+  sunflowerSeeds,
+  sunflowerWithPetals,
+} from './scenes.js'
 import { FPS, type Cue, cueAt, fernPoints, moonFacts, moonState, sceneAt, sunflowerState } from './script.js'
 
 /** The site's colours (speyyman.github.io, "Herbarium"). */
@@ -46,7 +57,7 @@ export function layoutFor(o: Orientation): Layout {
       label: { x: 96, y: 128 },
       title: { x: 96, y: 290, size: 148 },
       readout: { x: 96, y: 380, w: 760, h: 260 },
-      caption: { x: 96, y: 720, w: 760, h: 260, size: 32 },
+      caption: { x: 96, y: 720, w: 720, h: 260, size: 32 },
     }
   }
   return {
@@ -291,7 +302,7 @@ export class Painter {
     else this.plate(s.angle === GOLDEN_ANGLE_DEG ? sunflowerWithPetals(1) : sunflower(s.angle))
     const angle = s.kind === 'angle' ? s.angle : GOLDEN_ANGLE_DEG
     this.readout([
-      { text: `seeds     620` },
+      { text: `seeds     ${DRAWN_SEEDS}` },
       {
         text: `turn      ${angle === GOLDEN_ANGLE_DEG ? GOLDEN_ANGLE_DEG.toFixed(3) : angle.toFixed(3)}° each`,
         accent: angle !== GOLDEN_ANGLE_DEG,
@@ -320,9 +331,9 @@ export class Painter {
       return
     }
     this.readout([
-      { text: `date      ${f.day}` },
-      { text: `elongation ${String(Math.round(s.phase * 360)).padStart(4)}°`, accent: u < 16 },
-      { text: `lit       ${String(lit).padStart(4)}%` },
+      { text: `date       ${f.day}` },
+      { text: `elongation ${String(Math.round(s.phase * 360)).padStart(3)}°`, accent: u < 16 },
+      { text: `lit        ${String(lit).padStart(3)}%` },
       { text: u >= 16 ? f.name : '', dim: true },
     ])
   }

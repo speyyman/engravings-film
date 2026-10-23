@@ -1,6 +1,17 @@
 import { generate } from 'plate-engine'
 import { describe, expect, it } from 'vitest'
-import { CELLS, FERN_POINTS, Fern, SEED, SUNFLOWER_SEEDS, moonEngraved, moon, sunflowerSeeds, sunflowerWithPetals } from '../src/scenes.js'
+import {
+  CELLS,
+  DRAWN_SEEDS,
+  FERN_POINTS,
+  Fern,
+  SEED,
+  SUNFLOWER_SEEDS,
+  moonEngraved,
+  moon,
+  sunflowerSeeds,
+  sunflowerWithPetals,
+} from '../src/scenes.js'
 
 describe('fern', () => {
   it('ends as plate-engine’s fern, cell for cell', () => {
@@ -55,6 +66,12 @@ describe('sunflower', () => {
   it('with the petals fully in, is plate-engine’s plate', () => {
     expect(sunflowerWithPetals(1)).toEqual(engine)
     expect(sunflowerWithPetals(0)).toEqual(sunflowerSeeds(SUNFLOWER_SEEDS))
+  })
+
+  it('draws 619 seeds, as plate-engine does for a count of 620', () => {
+    expect(DRAWN_SEEDS).toBe(619)
+    expect(sunflowerSeeds(DRAWN_SEEDS)).toEqual(sunflowerSeeds(SUNFLOWER_SEEDS))
+    expect(sunflowerSeeds(DRAWN_SEEDS - 1)).not.toEqual(sunflowerSeeds(DRAWN_SEEDS))
   })
 
   it('draws more ink as seeds are added', () => {

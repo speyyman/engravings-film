@@ -149,8 +149,10 @@ export class Fern {
 
 // ---------------------------------------------------------------- sunflower
 
-/** Seeds in the finished head: plate-engine's default. */
+/** plate-engine's default seed count. Its loop runs i = 1 .. count − 1, so the head shows one fewer. */
 export const SUNFLOWER_SEEDS = 620
+/** Seeds actually drawn in the finished head. */
+export const DRAWN_SEEDS = SUNFLOWER_SEEDS - 1
 
 /** Where seed i sits (Vogel's model): angle i × θ, radius c√i. Cell coordinates. */
 export function seedPosition(i: number, angleDeg = GOLDEN_ANGLE_DEG, w = CELLS, h = CELLS) {
@@ -166,7 +168,7 @@ export function seedPosition(i: number, angleDeg = GOLDEN_ANGLE_DEG, w = CELLS, 
 /** The first `k` seeds of the head, each a small lit sphere, as plate-engine draws them. No petals. */
 export function sunflowerSeeds(k: number, w = CELLS, h = CELLS): Float32Array {
   const buf = new Float32Array(w * h)
-  const last = Math.min(k, SUNFLOWER_SEEDS - 1)
+  const last = Math.min(k, DRAWN_SEEDS)
   for (let i = 1; i <= last; i++) {
     const { x: sx, y: sy, r, c, R } = seedPosition(i, GOLDEN_ANGLE_DEG, w, h)
     const rad = c * (0.42 + 0.2 * (r / R))

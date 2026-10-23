@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { FERN_POINTS, SUNFLOWER_SEEDS } from '../src/scenes.js'
+import { DRAWN_SEEDS, FERN_POINTS } from '../src/scenes.js'
 import {
   DURATION,
   FPS,
@@ -52,7 +52,7 @@ describe('timeline', () => {
         last = s.seeds
       }
     }
-    expect(last).toBeGreaterThan(SUNFLOWER_SEEDS - 5)
+    expect(last).toBe(DRAWN_SEEDS)
     expect(sunflowerState(30)).toEqual({ kind: 'angle', angle: 135 })
     expect(sunflowerState(34)).toEqual({ kind: 'angle', angle: 137 })
   })
@@ -86,6 +86,7 @@ describe('captions', () => {
     expect(m.name).toBe('waxing gibbous')
     expect(list.some((c) => c.text.includes(`${m.litPercent}% of the face`))).toBe(true)
     expect(list.some((c) => c.text.includes('334,176 points'))).toBe(true)
+    expect(list.some((c) => c.text.startsWith('619 seeds.'))).toBe(true)
   })
 
   it('write valid WebVTT', () => {

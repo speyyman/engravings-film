@@ -4,7 +4,7 @@
  * file and the tests all read the same script.
  */
 import { GOLDEN_ANGLE_DEG, moonPhase, phaseName } from 'plate-engine'
-import { FERN_MAPS, FERN_POINTS, SUNFLOWER_SEEDS } from './scenes.js'
+import { DRAWN_SEEDS, FERN_MAPS, FERN_POINTS } from './scenes.js'
 
 export const FPS = 30
 
@@ -55,7 +55,7 @@ export function cues(date: Date): Cue[] {
       end: 24,
       text: `The dice are loaded: ${pct(frond.p)} in 100 for the frond, ${pct(left.p)} each for the two leaflets, ${pct(stem.p)} for the stem.`,
     },
-    { start: 24, end: 30.5, text: 'No rule mentions a leaflet. Each one is a smaller copy of the whole fern.' },
+    { start: 24, end: 30.5, text: 'No rule mentions a leaflet. Each leaflet is a smaller copy of the whole fern.' },
     { start: 30.5, end: 36.8, text: `${thousands(FERN_POINTS)} points. The same four rules every time.` },
 
     { start: 37.5, end: 43, text: 'A sunflower. One rule: turn, place a seed, step out a little.' },
@@ -65,7 +65,7 @@ export function cues(date: Date): Cue[] {
       end: 58,
       text: 'The turn is the golden angle, the turn least like any simple fraction of a circle. So no seed lines up with an earlier one.',
     },
-    { start: 58, end: 66, text: `${thousands(SUNFLOWER_SEEDS)} seeds. No rule draws the spirals. They appear anyway.` },
+    { start: 58, end: 66, text: `${thousands(DRAWN_SEEDS)} seeds. No rule draws the spirals. They appear anyway.` },
     { start: 66, end: 70, text: 'Turn 135° instead, three eighths of a circle, and the seeds fall into eight straight rows.' },
     { start: 70, end: 74, text: 'Turn 137°, half a degree short, and they curl into arms with gaps between them.' },
     { start: 74, end: 75.8, text: `Back to ${golden}°. No gaps.` },
@@ -76,7 +76,11 @@ export function cues(date: Date): Cue[] {
       end: 88,
       text: `The sun lights one half. At midnight UTC on ${m.day}, the moon stood about ${m.elongation}° from the sun, seen from Earth.`,
     },
-    { start: 88, end: 94, text: `So ${m.litPercent}% of the face we see is lit: ${m.name}. Past the terminator, only earthshine.` },
+    {
+      start: 88,
+      end: 94,
+      text: `So ${m.litPercent}% of the face we see is lit: ${m.name}. The dark side is drawn faint, so the face stays legible.`,
+    },
     { start: 94, end: 99.8, text: 'The seas are placed by hand and the craters at random. The light follows the rule.' },
 
     { start: 100.5, end: 105.8, text: 'Rules first. The form follows.' },
@@ -107,7 +111,7 @@ export type SunflowerState = { kind: 'growing'; seeds: number } | { kind: 'petal
 export function sunflowerState(u: number): SunflowerState {
   if (u < 3) return { kind: 'growing', seeds: 0 }
   if (u < 12) return { kind: 'growing', seeds: Math.max(1, Math.round(30 * span(u, 3, 12))) }
-  if (u < 21) return { kind: 'growing', seeds: Math.round(30 + (SUNFLOWER_SEEDS - 30) * ease(span(u, 12, 21)) ** 1.6) }
+  if (u < 21) return { kind: 'growing', seeds: Math.round(30 + (DRAWN_SEEDS - 30) * ease(span(u, 12, 21)) ** 1.6) }
   if (u < 24) return { kind: 'petals', alpha: ease(span(u, 21, 24)) }
   if (u < 29) return { kind: 'angle', angle: GOLDEN_ANGLE_DEG }
   if (u < 33) return { kind: 'angle', angle: 135 }
