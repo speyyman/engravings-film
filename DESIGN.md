@@ -6,12 +6,12 @@ The renderer page (`render/index.html`) is a work surface for scripts, not somet
 
 ## Tokens taken from the site
 
-| Token | Hex | Use in the film |
-|---|---|---|
-| ink | `#0c1611` | Background of every frame |
-| forest | `#142a1f` | Darkest of the plate's three tones |
-| moss | `#4f7a5a` | Middle tone |
-| bone | `#ece4d0` | Lightest tone, all text, plate frame (at 35% and 60%) |
+| Token     | Hex       | Use in the film                                                                                                                   |
+| --------- | --------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| ink       | `#0c1611` | Background of every frame                                                                                                         |
+| forest    | `#142a1f` | Darkest of the plate's three tones                                                                                                |
+| moss      | `#4f7a5a` | Middle tone                                                                                                                       |
+| bone      | `#ece4d0` | Lightest tone, all text, plate frame (at 35% and 60%)                                                                             |
 | vermilion | `#ff6b3d` | One accent only: the newest point, seed or engraved row, the readout line that is changing, and the short rule above each caption |
 
 Contrast (WCAG 2 formula, against ink `#0c1611`, computed): bone 14.6:1, vermilion 6.5:1, bone at 70% opacity (labels, `#a9a697`) 7.5:1, bone at 55% (dim readout lines, `#87877a`) 5.1:1. Moss (3.8:1) is never used for text. Every line of text clears AA at the sizes used (24 px and up on a 1080 or 1920 px frame).

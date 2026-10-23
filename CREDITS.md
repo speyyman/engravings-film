@@ -12,9 +12,9 @@ None. Every image in the film is computed by the code in this repository. There 
 
 ## The rules shown
 
-- Fern: the four affine maps and probabilities of Barnsley's fern, from M. F. Barnsley, *Fractals Everywhere*, 2nd ed., Academic Press, 1993 (the values as implemented in plate-engine).
-- Sunflower: H. Vogel, "A better way to construct the sunflower head", *Mathematical Biosciences* 44 (1979) 179–189, doi:10.1016/0025-5564(79)90080-4. Seed n at angle n × 137.508° and radius proportional to √n.
-- Moon: phase from a low-precision ephemeris after J. Meeus, *Astronomical Algorithms*, as implemented in plate-engine. The seas are approximate shapes placed by hand in plate-engine's moon generator and the smaller craters are random; the film says so.
+- Fern: the four affine maps and probabilities of Barnsley's fern, from M. F. Barnsley, _Fractals Everywhere_, 2nd ed., Academic Press, 1993 (the values as implemented in plate-engine).
+- Sunflower: H. Vogel, "A better way to construct the sunflower head", _Mathematical Biosciences_ 44 (1979) 179–189, doi:10.1016/0025-5564(79)90080-4. Seed n at angle n × 137.508° and radius proportional to √n.
+- Moon: phase from a low-precision ephemeris after J. Meeus, _Astronomical Algorithms_, as implemented in plate-engine. The seas are approximate shapes placed by hand in plate-engine's moon generator and the smaller craters are random; the film says so.
 
 ## Licences
 

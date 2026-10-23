@@ -6,11 +6,11 @@ A short silent film that draws a fern, a sunflower and the moon from their rules
 
 Watch it on [speyyman.github.io/media/engravings-drawn-live/](https://speyyman.github.io/media/engravings-drawn-live/). The essay it goes with is [Four rules and a fern](https://speyyman.github.io/writing/four-rules-and-a-fern/).
 
-| | |
-|---|---|
-| Length | 106 s at 30 fps, 3,180 frames |
-| Cuts | 1920×1080 H.264 MP4 and VP9 WebM; 1080×1920 H.264 MP4 |
-| Sound | None. Captions are drawn in the frame and also written as WebVTT |
+|        |                                                                                           |
+| ------ | ----------------------------------------------------------------------------------------- |
+| Length | 106 s at 30 fps, 3,180 frames                                                             |
+| Cuts   | 1920×1080 H.264 MP4 and VP9 WebM; 1080×1920 H.264 MP4                                     |
+| Sound  | None. Captions are drawn in the frame and also written as WebVTT                          |
 | Plates | [plate-engine](https://www.npmjs.com/package/plate-engine) 0.1.0, dithered in three tones |
 
 ## Quick start

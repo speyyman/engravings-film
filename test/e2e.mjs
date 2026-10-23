@@ -37,7 +37,9 @@ for (const c of cases) {
   }
 
   const probe = JSON.parse(
-    execFileSync(ffprobe, ['-v', 'error', '-count_frames', '-show_streams', '-of', 'json', `${root}out-e2e/a/${c.name}.mp4`], { encoding: 'utf8' }),
+    execFileSync(ffprobe, ['-v', 'error', '-count_frames', '-show_streams', '-of', 'json', `${root}out-e2e/a/${c.name}.mp4`], {
+      encoding: 'utf8',
+    }),
   ).streams[0]
   assert.equal(probe.codec_name, 'h264')
   assert.equal(probe.width, c.width)
