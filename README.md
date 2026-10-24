@@ -75,4 +75,4 @@ The film uses the palette and type of the site it was made for. See [DESIGN.md](
 
 Code: MIT, see [LICENSE](LICENSE). The film, its stills and captions: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 
-The code was written with Claude, an AI assistant, under the author's direction.
+Development was assisted by Claude (Anthropic).
