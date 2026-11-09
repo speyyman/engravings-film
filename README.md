@@ -4,7 +4,7 @@ A short silent film that draws a fern, a sunflower and the moon from their rules
 
 ![The finished fern, with the four maps and how often each was chosen](docs/still-landscape-fern.png)
 
-Watch it on [speyyman.github.io/media/engravings-drawn-live/](https://speyyman.github.io/media/engravings-drawn-live/). The essay it goes with is [Four rules and a fern](https://speyyman.github.io/writing/four-rules-and-a-fern/).
+Watch it on [speyyman.github.io/work/plate/#film](https://speyyman.github.io/work/plate/#film). The essay it goes with is [Four rules and a fern](https://speyyman.github.io/work/plate/#essay).
 
 |        |                                                                                           |
 | ------ | ----------------------------------------------------------------------------------------- |
